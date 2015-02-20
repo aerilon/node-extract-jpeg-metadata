@@ -1,0 +1,29 @@
+#!/usr/bin/env node
+
+"use strict";
+var FS = require('fs');
+var Path = require('path');
+
+var __build_lib_path = function (f) {
+	var realpath = FS.realpathSync(f)
+	var basename = Path.basename(realpath)
+	var dirname = Path.dirname(realpath)
+
+	return Path.join(dirname, '..', 'lib', basename, 'ExtractJPEGMetadata.js');
+}
+
+var ExtractJPEGMetadata = require(__build_lib_path(__filename))
+
+var input = process.argv[2]
+var output = process.argv[3]
+
+try {
+    new ExtractJPEGMetadata(input, function (error, buf) {
+        if (error)
+            console.log(error.stack);
+        FS.writeFile(output, buf)
+    });
+} catch (error) {
+    console.log(error.stack);
+}
+

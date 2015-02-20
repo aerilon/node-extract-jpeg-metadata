@@ -1,0 +1,12 @@
+{
+	"name" : "extract-jpeg-metadata",
+	"version" : "1.0.0",
+	"description" : "A node.js library to extract raw metadata from JPEG images.",
+	"author" : "Arnaud Lacombe <al@aerilon.ca>",
+    "keywords" : ["metadata", "jpeg", "jpg", "app", "com"],
+	"main" : "./lib/extract-jpeg-metadata",
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/aerilon/node-extract-jpeg-metadata.git"
+	}
+}
